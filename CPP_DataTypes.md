@@ -2,52 +2,130 @@
 
 ## Primitive Data Types
 
-Integer
+| Types |  Category    |
+|-----:|---------------|
+| float | Floating Point        | 
+| double |                      |
+| long double |                 |
+|---------------|---------------|
+| bool  | Integral(Boolean)    |
+|---------------|---------------|
+| char | Integral(Character)    |
+| wchar_t |                     |
+| char8_t |                     |
+| char16_t |                    |
+| char32_t |                    |
+|---------------|---------------|
+| short int |Integral(Integer)  | 2
+| int |                         |
+| long int |                    |
+| long long int |               |
+|---------------|---------------|
+| std::nullptr_t | Null Pointer |
 
-Float
 
-Double
-
-Boolean
-
-Charaters
-
-String
-
-### Examples
+**Examples**
 
 ```
-int someInteger = 8;
 float someFloatNum = 4.45;
 double someDoubleNum  = 8.99;
 bool someBoolean = true;
 char someCharacter = 'D';
-string = someString = "Hello World!";
+int someInteger = 8;
 ```
 
-## Other C++ Types
+## C++ Compound Types
 
-Array: Zero or more items if the same data type
+- Functions
+- Arrays
+- Pointer Types:
+  - Pointer to object
+  - Pointer to function
+- Pointer to Member Types:
+  - Pointer to data member
+  - Pointer to member function
+- Reference Types:
+  - L-value references
+  - R-value references
+- Enumerated Types:
+  - Unscoped enumerations
+  - Scoped enumerations
+- Class Types:
+  - Sructs
+  - Classes <- (string is actually a class type!)
+  - Unions
+
+
+**Strings:** `std::string` Holds a sequence of characters
+
+You must include the `<string>` type header to use
 ```
-int numArr[4] = {1, 2, 3, 4};
+#include <string> // allows use of std::string
+
+int main()
+{
+    std::string someString = "Hello World!"; 
+    return 0;
+}
 ```
 
-Pointer: Represents a memory address 
+
+**Containers:**  Holds zero or more items if the same data type
+
+3 main types: `std::array`, `std::vector`, and C-style arrays
 ```
-string name = "Anna";
-string *ptr = &name;
+#include <array>  // for std::array
+#include <vector> // for std::vector
+
+int main()
+{
+  std::array<int, 5> a {};  // a std::array of 5 ints
+
+  std::vector<int> primes{ 2, 3, 5, 7 };      
+  std::vector vowels { 'a', 'e', 'i', 'o', 'u' };
+}
+```
+```
+// C-style array (no include required)
+int main()
+{
+  int testScore[30] {};       
+  int numArr[4] = {1, 2, 3, 4};
+}
 ```
 
-Reference: References a variable name as an alias
+
+**Pointers:** Represents a memory address as its value
 ```
-int x = 2, int y = 3;
-int& rx = x;
-rx = y;
+int x = 5;
+int* ptr = &x; // ptr initialized to point to the address of x
+std::cout << *ptr << '\n'; // prints the value at the address being pointed to (x's address)
 ```
 
-Structure (instance)
 
-Class object(instance)
+**Reference:** References an existing object (variable alias)
+```
+int x = 2;
+int& ref = x; // int& is and lvalue reference to x
+std::cout << x << '\n';  // prints the value of x (5)
+std::cout << ref << '\n'; // prints the value of x via ref (5)
+```
+Above, `int&` is an lvalue reference to the integer `x`.
+Now `int&` and `x` can be used synonymously.
+
+
+**Struct:** Holds multiple variables together into a single type
+```
+struct testScores
+{
+  int score1 {};
+  int score2 {};
+  int score3 {};
+  // ...
+  int score30 {};
+}
+```
+
 
 ## Naming Conventions
 
@@ -60,13 +138,16 @@ Also you cannot use other reserved words by C++ like built-in name types.
 
 ## Converting Between Types
 
-Depending on the situation the compiler may performa widening conversion between types like:
+Depending on the situation the compiler may perform a widening or narrowing conversion between types.
 ```
-int x = 1;
-int y = 2.2;
-sum = x + y;
+int x = 5;
+double y = 2.2;
+int sum1 = x + y;
+double sum2 = x + y;
 
-output: 3.2
+std::cout << sum1 << '\n'; // Prints 7 (With an error message about data loss)
+std::cout << sum2 << '\n'; // Prints 7.2
+
 ```
 But if it is not that simple the compiler with throw either an error that this action
 cannot be performed, or a warning that there may be potential data loss. 
