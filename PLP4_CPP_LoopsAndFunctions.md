@@ -1,4 +1,4 @@
-# CPP Loops and Functions
+# C++ Loops and Functions
 
 
 **Does your language include multiple types of loops (while, do/while, for, foreach)? If so, what are they and how do they differ from each other?**
