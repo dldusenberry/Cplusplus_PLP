@@ -85,11 +85,11 @@ int main(){
 	int x = 4;
 	int y = 5;
 	int z = multiplier(x, y);
-	std::cout << "Multiplier = ", z;
+	std::cout << "Multiplier = " << z;
 
 	int w = 5;
 	int fact = recursiveFact(w);
-	std::cout << "Factorial = ", w;
+	std::cout << "Factorial = " << w;
 
 	// Tried to split a string for hours with no success	:(
 
