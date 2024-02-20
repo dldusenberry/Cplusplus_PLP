@@ -184,7 +184,9 @@ myObj.mySecondFunction();
 
 It really depends on the situation and what will happen if overloading occurs. It depends on the parameters, scope, any pointers or references, access levels, etc.
 
-Often the compiler will search for the method that best fits the parameters in the scope of the method called. Which might not throw an error but can produce undesirable results. 
+Implementation Inheritance-
+
+Often the compiler will use the method from the derived class and override the method from the base class. The method from the base class can still be used by explicitly specifying the base class name `base::method();` 
 
 C++ offers several ways to “get around” rather than resolve those calls. 
 
