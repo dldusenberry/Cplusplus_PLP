@@ -182,6 +182,17 @@ myObj.mySecondFunction();
 
 **If there is inheritance, how does your language deal with overloading method names and resolving those calls?**
 
+It really depends on the situation and what will happen if overloading occurs. It depends on the parameters, scope, any pointers or references, access levels, etc.
+
+Often the compiler will search for the method that best fits the parameters in the scope of the method called. Which might not throw an error but can produce undesirable results. 
+
+C++ offers several ways to “get around” rather than resolve those calls. 
+
+Programmers can use `virtual` methods, `override` and `final` methods, and interfaces.
+
+I think there are more but there is so much more to read about polymorphism and inheritance in C++, it is quite flexible and offers many ways to customize your code.
+
+
 
 **Is there anything else that’s important to know about objects and inheritance in your language?** (I know this question is vague, but objects are where languages can vary a lot, so it’s hard to ask questions that will apply to everyone.)
 
